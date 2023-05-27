@@ -60,7 +60,7 @@ public class Left4Dead2SprayPaintingTool {
                     logger.info("未发现\"%s\"，已创建并写入数据", vmtPath);
                 }
 
-                automaticSwitchingBuilder.append(String.format("alias \"image_%d\" \"cl_logofile %s;image_%d\"\n", i, vtfPath, i == fileSize ? 0 : i + 1));
+                automaticSwitchingBuilder.append(String.format("alias \"image_%d\" \"cl_logofile %s;wait 1;image_%d\"\n", i, vtfPath, i == fileSize ? 0 : i + 1));
                 spraysManifestBuilder.append(String.format("\"%s\"\t\"%s\"\n", vtfName.substring(0, vtfName.length() - 4), vtfPath));
                 if (i % 100 == 0) {
                     automaticSwitchingWriter.write(automaticSwitchingBuilder.toString());
